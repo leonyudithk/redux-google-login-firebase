@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import useForm from '../hooks/useForm';
 import { AddCitas } from '../redux/actions/actionCitas';
+import { loginAsync } from '../redux/actions/actionLogin';
 
 
 const AgregarCita = () => {
@@ -93,6 +94,9 @@ const AgregarCita = () => {
 
                     <button type="submit" className="btn btn-primary">
                         Guardar
+                    </button>
+                    <button type="button" onClick={()=>dispatch(loginAsync())} className="btn btn-primary">
+                        Logout
                     </button>
                 </form>
             </div>

@@ -1,8 +1,9 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import useForm from '../hooks/useForm';
-import { loginGoogle, loginSync, logout } from '../redux/actions/actionLogin';
+import { loginAsync, loginGoogle, loginSync, logout } from '../redux/actions/actionLogin';
 
 const Login = () => {
     const dispatch = useDispatch()
@@ -17,7 +18,7 @@ const Login = () => {
     const handleSubmit =(e)=>{
         e.preventDefault()
         console.log(formValue)
-        dispatch(loginSync(user, pass))
+        dispatch(loginAsync(user, pass))
         rest()
     }
 
@@ -66,16 +67,16 @@ const Login = () => {
                     <button type="submit" className="btn btn-primary" onClick={()=>dispatch(logout())}>
                         Logout
                     </button>
-                    <container className="auth__social-networks">
-                <container
+                    <Container className="auth__social-networks">
+                <Container
                     className="google-btn"
                     onClick={()=>dispatch(loginGoogle())}
                 >
-                    <container className="google-icon-wrapper">
+                    <Container className="google-icon-wrapper">
                         <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
-                    </container>
-                </container>
-            </container>
+                    </Container>
+                </Container>
+            </Container>
             <Link to="/register">Registrarse</Link>
                 </form>
             </div>
