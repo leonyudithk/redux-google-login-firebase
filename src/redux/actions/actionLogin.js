@@ -7,7 +7,7 @@ export const logoutAsync = ()=>{
     return(dispatch)=>{
         const auth= getAuth()
         signOut(auth)
-        .then(({user})=>{
+        .then((user)=>{
             console.log('Adios')
             dispatch(logout())
             
